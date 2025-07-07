@@ -69,7 +69,7 @@
       <div class="nav-item" data-command="about">
         <span class="nav-icon">👨‍💻</span>
         <div class="nav-title">./about</div>
-        <div class="nav-desc">Complete brand & personal information - Learn about Rami Mohamed</div>
+        <div class="nav-desc">Complete brand & personal information - Learn about Mohamed Rami</div>
       </div>
 
       <div class="nav-item" data-command="brand">
@@ -100,6 +100,138 @@
         <span class="nav-icon">🌐</span>
         <div class="nav-title">./social</div>
         <div class="nav-desc">Social media links and online presence</div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="aboutSection" style="display: none;">
+      <div class="about-header">
+        <h2>👨‍💻 About 0xrmd</h2>
+        <div class="about-subtitle">Mohamed Rami - Digital Architect & Full-Stack Developer</div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-row">
+          <div class="about-card">
+            <h3>🆔 Personal Identity</h3>
+            <div class="about-details">
+              <p><strong>Full Name:</strong> Mohamed Rami</p>
+              <p><strong>Brand:</strong> 0xrmd</p>
+              <p><strong>Username:</strong> @0xrmd</p>
+              <p><strong>Location:</strong> Algeria 🇩🇿</p>
+              <p><strong>Timezone:</strong> UTC+1 (CET)</p>
+              <p><strong>Languages:</strong> Arabic, French, English</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3>💼 Professional Profile</h3>
+            <div class="about-details">
+              <p><strong>Role:</strong> Full-Stack Developer</p>
+              <p><strong>Specialization:</strong> System Architecture</p>
+              <p><strong>Experience:</strong> Senior Level</p>
+              <p><strong>Focus:</strong> Web Development & DevOps</p>
+              <p><strong>Approach:</strong> Problem-solving through code</p>
+              <p><strong>Mission:</strong> Building tomorrow's solutions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-row">
+          <div class="about-card">
+            <h3>🎯 Brand Philosophy</h3>
+            <div class="about-details">
+              <p><strong>Core Command:</strong> <code>rm -d legacy && mkdir future</code></p>
+              <p><strong>Meaning:</strong> Remove outdated systems, create innovative solutions</p>
+              <p><strong>Vision:</strong> Transforming complex challenges into elegant solutions</p>
+              <p><strong>Values:</strong> Innovation, Efficiency, Sustainability</p>
+              <p><strong>Mindset:</strong> Every line of code is a step toward the future</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3>🚀 Technical Expertise</h3>
+            <div class="about-details">
+              <p><strong>Full-Stack Development:</strong> End-to-end solutions</p>
+              <p><strong>System Architecture:</strong> Scalable design patterns</p>
+              <p><strong>DevOps & Cloud:</strong> Deployment automation</p>
+              <p><strong>Performance:</strong> Code optimization specialist</p>
+              <p><strong>AI/ML Integration:</strong> Modern tech adoption</p>
+              <p><strong>Security:</strong> Cybersecurity implementation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-row">
+          <div class="about-card">
+            <h3>🎨 Brand Identity</h3>
+            <div class="about-details">
+              <p><strong>Name Origin:</strong></p>
+              <ul>
+                <li><code>0x</code> = Hexadecimal prefix (developer mindset)</li>
+                <li><code>rm</code> = Mohamed Rami (personal identity)</li>
+                <li><code>d</code> = Developer / Directory (dual meaning)</li>
+                <li><code>rm -d</code> = Remove directory (philosophy connection)</li>
+              </ul>
+              <p><strong>Colors:</strong> #00bf63 (Success) + #ff3131 (Alert)</p>
+              <p><strong>Style:</strong> Cyberpunk minimalism</p>
+              <p><strong>Theme:</strong> Terminal/Console aesthetic</p>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3>📊 Current Status</h3>
+            <div class="about-details">
+              <p><strong>Portfolio:</strong> 75% Complete</p>
+              <p><strong>Projects:</strong> Multiple in development</p>
+              <p><strong>Availability:</strong> Open to collaboration</p>
+              <p><strong>Focus:</strong> Building extraordinary solutions</p>
+              <p><strong>Domain:</strong> 0xrmd.dev (launching soon)</p>
+              <p><strong>Contact:</strong> contact@0xrmd.dev (coming soon)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-quote">
+          <blockquote>
+            "Every line of code is a step toward the future we want to build."
+            <cite>- 0xrmd</cite>
+          </blockquote>
+        </div>
+
+        <div class="about-services">
+          <h3>💼 Professional Services</h3>
+          <div class="services-grid">
+            <div class="service-item">
+              <span class="service-icon">🌐</span>
+              <span class="service-name">Web Development</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon">🏗️</span>
+              <span class="service-name">System Architecture</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon">⚡</span>
+              <span class="service-name">Performance Optimization</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon">🔧</span>
+              <span class="service-name">DevOps Implementation</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon">👥</span>
+              <span class="service-name">Technical Leadership</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon">📋</span>
+              <span class="service-name">Code Review & Mentoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-footer">
+        <button class="close-about-btn" onclick="closeAboutSection()">Close About Section</button>
       </div>
     </div>
 
@@ -211,83 +343,19 @@
         }
       },
       about: {
-        description: 'About Rami Mohamed',
+        description: 'About Mohamed Rami',
         execute: () => {
-          return [
-            '╔═══════════════════════════════════════════════════════════════════════════════╗',
-            '║                            🌟 ABOUT 0xrmd 🌟                                 ║',
-            '║                          Rami Mohamed - Digital Architect                     ║',
-            '╠═══════════════════════════════════════════════════════════════════════════════╣',
-            '║                                                                               ║',
-            '║  👤 PERSONAL BRAND                                                           ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Brand Name: 0xrmd                                                         ║',
-            '║  • Full Name: Rami Mohamed                                                    ║',
-            '║  • Username: @0xrmd (across all platforms)                                   ║',
-            '║  • Domain: 0xrmd.dev (coming soon)                                           ║',
-            '║  • Location: Algeria 🇩🇿                                                     ║',
-            '║  • Timezone: UTC+1 (CET)                                                     ║',
-            '║                                                                               ║',
-            '║  🎯 BRAND PHILOSOPHY                                                         ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Core Mission: "rm -d legacy && mkdir future"                              ║',
-            '║  • Vision: Building the future of technology                                 ║',
-            '║  • Values: Innovation, Efficiency, Sustainability                            ║',
-            '║  • Approach: Problem-solving through code                                    ║',
-            '║                                                                               ║',
-            '║  💡 BRAND IDENTITY                                                           ║',
-            '║  ─────────────────                                                           ║',
-            '║  The "0xrmd" name represents multiple layers:                                ║',
-            '║  • 0x = Hexadecimal prefix (developer mindset)                               ║',
-            '║  • rmd = Rami Mohamed (personal identity)                                     ║',
-            '║  • rm -d = Remove directory command (philosophy)                             ║',
-            '║  • Symbolizes: Removing old limitations, creating new possibilities          ║',
-            '║                                                                               ║',
-            '║  🚀 PROFESSIONAL FOCUS                                                       ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Full-Stack Development                                                     ║',
-            '║  • System Architecture & Design                                              ║',
-            '║  • DevOps & Cloud Technologies                                               ║',
-            '║  • Performance Optimization                                                  ║',
-            '║  • AI/ML Integration                                                         ║',
-            '║  • Cybersecurity Implementation                                              ║',
-            '║                                                                               ║',
-            '║  🎨 BRAND AESTHETICS                                                         ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Color Scheme: #00bf63 (Success Green) + #ff3131 (Alert Red)              ║',
-            '║  • Style: Terminal/Console aesthetic                                         ║',
-            '║  • Theme: Cyberpunk meets minimalism                                         ║',
-            '║  • Typography: Monospace fonts (Courier New, JetBrains Mono)                ║',
-            '║                                                                               ║',
-            '║  📈 CURRENT STATUS                                                           ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Portfolio: 75% Complete                                                   ║',
-            '║  • Active Projects: Multiple in development                                  ║',
-            '║  • Availability: Open to collaborations                                      ║',
-            '║  • Focus: Building extraordinary solutions                                   ║',
-            '║                                                                               ║',
-            '║  🔗 SOCIAL PRESENCE                                                          ║',
-            '║  ─────────────────                                                           ║',
-            '║  • GitHub: github.com/0xrmd (coming soon)                                    ║',
-            '║  • LinkedIn: linkedin.com/in/rami-mohamed-0xrmd (coming soon)                ║',
-            '║  • Twitter: @0xrmd (coming soon)                                             ║',
-            '║  • Email: contact@0xrmd.dev (coming soon)                                    ║',
-            '║                                                                               ║',
-            '║  💼 PROFESSIONAL SERVICES                                                    ║',
-            '║  ─────────────────                                                           ║',
-            '║  • Web Application Development                                               ║',
-            '║  • System Architecture Consulting                                           ║',
-            '║  • Performance Optimization                                                  ║',
-            '║  • DevOps Implementation                                                     ║',
-            '║  • Technical Leadership                                                      ║',
-            '║  • Code Review & Mentoring                                                   ║',
-            '║                                                                               ║',
-            '╚═══════════════════════════════════════════════════════════════════════════════╝',
-            '',
-            '🌟 "Every line of code is a step toward the future we want to build." - 0xrmd',
-            '',
-            'Type "contact" to get in touch or "philosophy" to learn more about my approach!'
-          ];
+          // Show loading animation first
+          addOutputLine('🚀 Loading About section...', 'output-line');
+          addOutputLine('📊 Compiling personal data...', 'output-line');
+          addOutputLine('✨ Initializing smooth transition...', 'output-line');
+
+          // Trigger smooth transition to About section
+          setTimeout(() => {
+            smoothTransitionToAbout();
+          }, 1000);
+
+          return ['💫 Transitioning to About section...'];
         }
       },
       whoami: {
@@ -298,7 +366,7 @@
             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
             '',
             '🆔 USERNAME: 0xrmd',
-            '👨‍💻 REAL NAME: Rami Mohamed',
+            '👨‍💻 REAL NAME: Mohamed Rami',
             '🏷️ DISPLAY NAME: 0xrmd',
             '📧 EMAIL: contact@0xrmd.dev (coming soon)',
             '🌐 DOMAIN: 0xrmd.dev (launching soon)',
@@ -366,7 +434,7 @@
             '📡 CONTACT INFORMATION',
             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
             '',
-            '👤 RAMI MOHAMED (@0xrmd)',
+            '👤 MOHAMED RAMI (@0xrmd)',
             '📍 Location: Algeria 🇩🇿',
             '⏰ Timezone: UTC+1 (CET)',
             '',
@@ -432,14 +500,15 @@
             '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
             '',
             '📛 BRAND NAME: 0xrmd',
-            '👤 FULL NAME: Rami Mohamed',
+            '👤 FULL NAME: Mohamed Rami',
             '🌐 USERNAME: @0xrmd (universal across platforms)',
             '🔗 DOMAIN: 0xrmd.dev (launching soon)',
             '',
             '🎯 BRAND MEANING:',
             '• 0x = Hexadecimal prefix (developer mindset)',
-            '• rmd = Rami Mohamed (personal identity)',
-            '• rm -d = Remove directory command (philosophy)',
+            '• rm = Mohamed Rami (personal identity)',
+            '• d = Developer / Directory (dual meaning)',
+            '• rm -d = Remove directory command (philosophy connection)',
             '',
             '🎨 VISUAL IDENTITY:',
             '• Primary Color: #00bf63 (Success Green)',
@@ -830,6 +899,103 @@
           setTimeout(() => createParticle(), i * 50);
         }
       }
+    });
+
+    // Smooth transition to About section
+    function smoothTransitionToAbout() {
+      const aboutSection = document.getElementById('aboutSection');
+      const terminalContainer = document.querySelector('.container');
+      const commandInput = document.getElementById('commandInput');
+      const terminalOutput = document.getElementById('terminalOutput');
+
+      // Add fade-out animation to terminal
+      terminalContainer.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+      terminalContainer.style.opacity = '0.3';
+      terminalContainer.style.transform = 'scale(0.95)';
+
+      setTimeout(() => {
+        // Hide terminal elements
+        commandInput.style.display = 'none';
+        terminalOutput.style.display = 'none';
+
+        // Show About section with fade-in animation
+        aboutSection.style.display = 'block';
+        aboutSection.style.opacity = '0';
+        aboutSection.style.transform = 'translateY(30px)';
+        aboutSection.style.transition = 'all 0.8s ease-out';
+
+        // Smooth scroll to About section
+        aboutSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
+
+        // Trigger the animation
+        setTimeout(() => {
+          aboutSection.style.opacity = '1';
+          aboutSection.style.transform = 'translateY(0)';
+          terminalContainer.style.opacity = '1';
+          terminalContainer.style.transform = 'scale(1)';
+        }, 50);
+
+        // Add success message
+        setTimeout(() => {
+          addOutputLine('✅ About section loaded successfully!', 'output-line');
+          addOutputLine('📍 Scrolled to About section', 'output-line');
+        }, 300);
+      }, 500);
+    }
+
+    // Enhanced toggle About section with animation
+    function toggleAboutSection() {
+      const aboutSection = document.getElementById('aboutSection');
+      const commandInput = document.getElementById('commandInput');
+      const terminalOutput = document.getElementById('terminalOutput');
+
+      if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
+        smoothTransitionToAbout();
+      } else {
+        closeAboutSection();
+      }
+    }
+
+    // Close About section with smooth animation
+    function closeAboutSection() {
+      const aboutSection = document.getElementById('aboutSection');
+      const terminalContainer = document.querySelector('.container');
+      const commandInput = document.getElementById('commandInput');
+      const terminalOutput = document.getElementById('terminalOutput');
+
+      // Add fade-out animation to About section
+      aboutSection.style.transition = 'all 0.5s ease-out';
+      aboutSection.style.opacity = '0';
+      aboutSection.style.transform = 'translateY(-30px)';
+
+      setTimeout(() => {
+        // Hide About section
+        aboutSection.style.display = 'none';
+
+        // Show terminal elements with fade-in
+        commandInput.style.display = 'block';
+        terminalOutput.style.display = 'block';
+
+        // Reset container styles
+        terminalContainer.style.opacity = '1';
+        terminalContainer.style.transform = 'scale(1)';
+
+        // Focus back to command input
+        commandInput.focus();
+
+        // Add closing message
+        addOutputLine('🔄 Returned to terminal interface', 'output-line');
+        addOutputLine('', 'output-line');
+      }, 500);
+    }
+
+    // Close About section on button click
+    document.querySelector('.close-about-btn').addEventListener('click', () => {
+      closeAboutSection();
     });
   </script>
 </body>
