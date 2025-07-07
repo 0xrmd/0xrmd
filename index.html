@@ -4,532 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>0xrmd — Remove. Rebuild. Rami Mohamed.</title>
-  <style>
-    :root {
-      --primary: #00bf63;
-      --bg: #000;
-      --text: #ffffff;
-      --accent: #1a1a1a;
-      --danger: #ff3131;
-      --font: 'Inter', sans-serif;
-    }
-
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font);
-      background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
-      color: var(--text);
-      padding: 4rem 2rem;
-      overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
-    }
-
-    /* Animated background particles */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 49, 49, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(0, 191, 99, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
-      animation: float 20s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      33% {
-        transform: translateY(-20px) rotate(1deg);
-      }
-
-      66% {
-        transform: translateY(10px) rotate(-1deg);
-      }
-    }
-
-    /* Matrix rain background */
-    .matrix-rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.1;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-      animation: fadeInUp 1s ease-out forwards;
-    }
-
-    .fade-in:nth-child(2) {
-      animation-delay: 0.1s;
-    }
-
-    .fade-in:nth-child(3) {
-      animation-delay: 0.2s;
-    }
-
-    .fade-in:nth-child(4) {
-      animation-delay: 0.3s;
-    }
-
-    .fade-in:nth-child(5) {
-      animation-delay: 0.4s;
-    }
-
-    .fade-in:nth-child(6) {
-      animation-delay: 0.5s;
-    }
-
-    .fade-in:nth-child(7) {
-      animation-delay: 0.6s;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .container {
-      max-width: 960px;
-      margin: auto;
-      background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(0, 191, 99, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      position: relative;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 191, 99, 0.3);
-      animation: containerGlow 4s ease-in-out infinite;
-    }
-
-    @keyframes containerGlow {
-
-      0%,
-      100% {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 191, 99, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-
-      50% {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 191, 99, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-    }
-
-    .cyber-border {
-      position: relative;
-      border: 2px solid transparent;
-      background: linear-gradient(145deg, #1a1a1a, #0f0f0f) padding-box,
-        linear-gradient(45deg, #00bf63, #ff3131, #ffffff, #00bf63) border-box;
-    }
-
-    .logo-container {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-
-    .logo-container img {
-      max-width: 220px;
-      width: 85%;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0, 191, 99, 0.6);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: logoFloat 6s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      25% {
-        transform: translateY(-10px) rotate(1deg);
-      }
-
-      50% {
-        transform: translateY(-5px) rotate(0deg);
-      }
-
-      75% {
-        transform: translateY(-15px) rotate(-1deg);
-      }
-    }
-
-    .logo-container img:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 0 50px rgba(0, 191, 99, 0.8), 0 0 100px rgba(255, 49, 49, 0.3);
-      filter: brightness(1.2);
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      border-bottom: 3px solid var(--primary);
-      padding-bottom: 0.8rem;
-      margin-bottom: 2rem;
-      background: linear-gradient(90deg, var(--primary), #ffffff, var(--danger));
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: textShine 3s ease-in-out infinite;
-    }
-
-    @keyframes textShine {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .typing-effect {
-      overflow: hidden;
-      border-right: 3px solid var(--primary);
-      white-space: nowrap;
-      animation: typing 3s steps(40) forwards, blink-caret 1s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink-caret {
-
-      from,
-      to {
-        border-color: transparent;
-      }
-
-      50% {
-        border-color: var(--primary);
-      }
-    }
-
-    .glitch-text {
-      position: relative;
-      animation: glitch 3s linear infinite;
-    }
-
-    @keyframes glitch {
-
-      2%,
-      64% {
-        transform: translate(2px, 0) skew(0deg);
-      }
-
-      4%,
-      60% {
-        transform: translate(-2px, 0) skew(0deg);
-      }
-
-      62% {
-        transform: translate(0, 0) skew(5deg);
-      }
-    }
-
-    h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    h2:hover {
-      transform: translateX(10px);
-      text-shadow: 0 0 10px rgba(0, 191, 99, 0.8);
-    }
-
-    .section {
-      margin-bottom: 3rem;
-      padding: 1.5rem;
-      border-radius: 15px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 191, 99, 0.05) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 191, 99, 0.3);
-      border-color: rgba(0, 191, 99, 0.5);
-    }
-
-    .section:hover::before {
-      left: 100%;
-    }
-
-    .section:nth-child(odd) {
-      border-left: 3px solid var(--primary);
-    }
-
-    .section:nth-child(even) {
-      border-left: 3px solid var(--danger);
-    }
-
-    p,
-    li {
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .section:hover p,
-    .section:hover li {
-      transform: translateX(5px);
-    }
-
-    .highlight {
-      background: linear-gradient(45deg, var(--primary), #ffffff);
-      color: #000;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-weight: bold;
-      position: relative;
-      display: inline-block;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    code {
-      background: linear-gradient(45deg, #111, #222);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-family: 'Courier New', monospace;
-      color: var(--danger);
-      border: 1px solid rgba(255, 49, 49, 0.3);
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    code:hover {
-      background: linear-gradient(45deg, #222, #333);
-      box-shadow: 0 0 10px rgba(255, 49, 49, 0.5);
-      transform: scale(1.05);
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    li {
-      position: relative;
-      padding-left: 1rem;
-    }
-
-    li::before {
-      content: '▶';
-      position: absolute;
-      left: -0.5rem;
-      color: var(--primary);
-      font-size: 0.8rem;
-      animation: blink 2s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      50% {
-        opacity: 1;
-      }
-
-      51%,
-      100% {
-        opacity: 0.3;
-      }
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--danger));
-      transition: width 0.3s ease;
-    }
-
-    a:hover::after {
-      width: 100%;
-    }
-
-    a:hover {
-      text-shadow: 0 0 8px rgba(0, 191, 99, 0.8);
-      transform: translateY(-2px);
-    }
-
-    .tagline {
-      font-style: italic;
-      font-size: 1.3rem;
-      border-left: 4px solid var(--primary);
-      padding: 1rem 1.5rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, rgba(0, 191, 99, 0.1), rgba(255, 255, 255, 0.05));
-      border-radius: 0 12px 12px 0;
-      position: relative;
-      animation: slideInLeft 1s ease-out;
-    }
-
-    @keyframes slideInLeft {
-      from {
-        transform: translateX(-50px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .contact-info {
-      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      line-height: 2.2;
-      box-shadow: inset 0 0 20px rgba(255, 49, 49, 0.1), 0 0 20px rgba(0, 191, 99, 0.2);
-      border: 1px solid rgba(255, 49, 49, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-info::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(0, 191, 99, 0.1), transparent, rgba(255, 49, 49, 0.1), transparent);
-      animation: rotate 10s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .color-red {
-      color: #ff3131 !important;
-    }
-
-    .color-white {
-      color: #ffffff !important;
-    }
-
-    .color-green {
-      color: #00bf63 !important;
-    }
-
-    strong {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    strong:hover {
-      color: var(--primary);
-      text-shadow: 0 0 5px rgba(0, 191, 99, 0.8);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 2rem 1rem;
-      }
-
-      .container {
-        padding: 2rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .logo-container img {
-        max-width: 180px;
-      }
-    }
-  </style>
+  <title>0xrmd@terminal:~$ _</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="fav-icon.ico" type="image/x-icon">
 </head>
 
@@ -542,74 +18,104 @@
   </div>
 
   <div class="container cyber-border">
-    <h1 class="fade-in typing-effect glitch-text">0xrmd — Remove. Rebuild. Rami Mohamed.</h1>
-
-    <div class="section fade-in">
-      <h2>🔹 The Breakdown</h2>
-      <p><span class="highlight">0x</span> — The universal prefix for hexadecimal. Used in blockchain, memory, and
-        systems programming. A symbol of the origin, of ground zero where all computation begins.</p>
-      <p><span class="highlight">rmd</span> — A triple-layered identity: <strong>Rami Mohamed</strong> (your name),
-        <code>rm -d</code> (Linux command: remove directory), and <strong>rm + d</strong> (remove + developer).
-        It represents the philosophy of a developer who removes complexity, strips away unnecessary code, and
-        builds clean, efficient systems. The <code>d</code> stands for both <strong>developer</strong> and
-        <strong>directory</strong> — you control the structure, you decide what stays and what goes.
-      </p>
+    <div class="terminal-header">
+      <div class="terminal-controls">
+        <div class="control-btn close"></div>
+        <div class="control-btn minimize"></div>
+        <div class="control-btn maximize"></div>
+      </div>
+      <div class="terminal-title">0xrmd@portfolio:~$</div>
     </div>
 
-    <div class="section fade-in">
-      <h2>🔸 The Developer's Philosophy</h2>
-      <ul>
-        <li><strong>rm -d</strong> — Remove directories, remove complexity, start fresh.</li>
-        <li><strong>Clean slate mentality</strong> — Every project begins with clearing the old to make space for the
-          new.</li>
-        <li><strong>Minimalist by design</strong> — Strip away the unnecessary, keep only what adds value.</li>
-        <li><strong>Professional approach</strong> — From concept to deployment, every step is intentional.</li>
-        <li><strong>Fresh perspective</strong> — Remove old assumptions, build something better.</li>
-      </ul>
+    <div class="command-line">
+      <span class="prompt-text">0xrmd@terminal:~$</span>
+      <input type="text" class="command-input" placeholder="Type 'help' for available commands..." id="commandInput">
     </div>
 
-    <div class="section fade-in">
-      <h2>🧠 Deep Technical Identity</h2>
-      <p><code>0x</code> marks the beginning — where data takes shape in hexadecimal. <code>rmd</code> is the
-        command that clears the path for new creation. Together, <strong>0xrmd</strong> represents the cycle
-        of professional development: analyze, remove, rebuild.</p>
-      <p>In Linux, <code>rm -d</code> removes empty directories, making space for new structure. As a developer,
-        you follow the same principle: remove legacy code, eliminate technical debt, and architect fresh solutions.</p>
-      <p>It's a name built like code: <strong>precise</strong>, <strong>functional</strong>, and
-        <strong>optimized</strong>.
-      </p>
+    <div class="terminal-content" id="terminalOutput">
+      <div class="output-line">Welcome to 0xrmd Terminal Interface v2.0</div>
+      <div class="output-line">System initialized successfully...</div>
+      <div class="output-line">Loading portfolio modules...</div>
+      <div class="output-line">[OK] Matrix background loaded</div>
+      <div class="output-line">[OK] Interactive navigation ready</div>
+      <div class="output-line">[OK] Color scheme initialized (#00bf63, #ff3131, #ffffff)</div>
+      <div class="output-line">[INFO] Portfolio content in development - Enhanced features coming soon!</div>
+      <div class="output-line">[NOTICE] rm -d legacy && mkdir future - Philosophy active</div>
+      <div class="output-line">Type 'help' to see available commands</div>
     </div>
 
-    <div class="section fade-in">
-      <h2>🌍 Inspired by Algeria</h2>
-      <p>The core brand colors reflect the Algerian flag and its spirit:</p>
-      <ul>
-        <li><strong class="color-green">Green (#00bf63)</strong> — Hope, growth, and the power of nature. A color of
-          positive momentum.</li>
-        <li><strong class="color-white">White (#ffffff)</strong> — Peace, clarity, and openness. Clean code. Clear
-          intent.</li>
-        <li><strong class="color-red">Red (#ff3131)</strong> — Strength, sacrifice, and boldness. The fire that
-          drives execution.</li>
-      </ul>
-      <p>This is not just a username — it's a symbol of identity, origin, and vision.</p>
+    <div class="ascii-art">
+      ██████╗ ██╗ ██╗██████╗ ███╗ ███╗██████╗
+      ██╔═████╗╚██╗██╔╝██╔══██╗████╗ ████║██╔══██╗
+      ██║██╔██║ ╚███╔╝ ██████╔╝██╔████╔██║██║ ██║
+      ████╔╝██║ ██╔██╗ ██╔══██╗██║╚██╔╝██║██║ ██║
+      ╚██████╔╝██╔╝ ██╗██║ ██║██║ ╚═╝ ██║██████╔╝
+      ╚═════╝ ╚═╝ ╚═╝╚═╝ ╚═╝╚═╝ ╚═╝╚═════╝
     </div>
 
-    <div class="section fade-in">
-      <h2>🔥 Mission Statement</h2>
-      <p class="tagline">"Remove old projects. Start fresh. Build professional."</p>
-      <p>Your code speaks for you. Your username signs what matters. You remove quietly, you build loudly.</p>
-      <p>Every line of code is intentional. Every project starts with a clean slate. Every solution is built to last.
-      </p>
+    <div class="coming-soon">
+      <h2>Content Loading<span class="loading-dots"></span></h2>
+      <p>🚀 Professional portfolio modules are being compiled and deployed</p>
+      <p>⚡ Enhanced interactive features in development</p>
+      <p>🎯 Full content launch scheduled for early 2025</p>
+      <p>💡 Currently building something extraordinary - Stay tuned!</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="progress-text">Development Progress: 75% Complete</p>
     </div>
 
-    <div class="section fade-in">
-      <h2>🪪 Identity in Action</h2>
-      <div class="contact-info">
-        Username: <strong>@0xrmd</strong><br>
-        Email: <strong>hi@0xrmd.co</strong><br>
-        Portfolio: <a href="https://0xrmd.co" target="_blank">0xrmd.co</a><br>
-        GitHub: <a href="https://github.com/0xrmd" target="_blank">github.com/0xrmd</a><br>
-        Philosophy: <strong>rm -d legacy && mkdir future</strong>
+    <div class="navigation-menu">
+      <div class="nav-item" data-command="about">
+        <span class="nav-icon">👨‍💻</span>
+        <div class="nav-title">./about</div>
+        <div class="nav-desc">Complete brand & personal information - Learn about Rami Mohamed</div>
+      </div>
+
+      <div class="nav-item" data-command="brand">
+        <span class="nav-icon">🎨</span>
+        <div class="nav-title">./brand</div>
+        <div class="nav-desc">Brand identity, design details, and visual aesthetics</div>
+      </div>
+
+      <div class="nav-item" data-command="projects">
+        <span class="nav-icon">🚀</span>
+        <div class="nav-title">./projects</div>
+        <div class="nav-desc">Explore professional projects and open-source contributions</div>
+      </div>
+
+      <div class="nav-item" data-command="skills">
+        <span class="nav-icon">⚡</span>
+        <div class="nav-title">./skills</div>
+        <div class="nav-desc">Technical expertise and development capabilities</div>
+      </div>
+
+      <div class="nav-item" data-command="contact">
+        <span class="nav-icon">�</span>
+        <div class="nav-title">./contact</div>
+        <div class="nav-desc">Connect and collaborate - Let's build something amazing</div>
+      </div>
+
+      <div class="nav-item" data-command="social">
+        <span class="nav-icon">🌐</span>
+        <div class="nav-title">./social</div>
+        <div class="nav-desc">Social media links and online presence</div>
+      </div>
+    </div>
+
+    <div class="status-bar">
+      <div class="status-item">
+        <div class="status-indicator"></div>
+        <span>System Online</span>
+      </div>
+      <div class="status-item">
+        <span>Location: Algeria</span>
+      </div>
+      <div class="status-item">
+        <span>rm -d legacy && mkdir future</span>
+      </div>
+      <div class="status-item">
+        <span>Build: Professional</span>
       </div>
     </div>
   </div>
@@ -673,6 +179,518 @@
     document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
+
+    // Terminal Command System
+    const commandInput = document.getElementById('commandInput');
+    const terminalOutput = document.getElementById('terminalOutput');
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    const commands = {
+      help: {
+        description: 'Show available commands',
+        execute: () => {
+          return [
+            'Available commands:',
+            '  help        - Show this help message',
+            '  about       - Complete brand & personal information',
+            '  brand       - Brand identity & design details',
+            '  projects    - View projects (coming soon)',
+            '  skills      - Technical skills (coming soon)',
+            '  contact     - Get in touch',
+            '  blog        - Development blog (coming soon)',
+            '  resume      - Professional resume (coming soon)',
+            '  clear       - Clear terminal',
+            '  whoami      - Current user info',
+            '  date        - Current date and time',
+            '  philosophy  - The rm -d philosophy',
+            '  matrix      - Toggle matrix effect',
+            '  colors      - Show color scheme',
+            '  social      - Social media links'
+          ];
+        }
+      },
+      about: {
+        description: 'About Rami Mohamed',
+        execute: () => {
+          return [
+            '╔═══════════════════════════════════════════════════════════════════════════════╗',
+            '║                            🌟 ABOUT 0xrmd 🌟                                 ║',
+            '║                          Rami Mohamed - Digital Architect                     ║',
+            '╠═══════════════════════════════════════════════════════════════════════════════╣',
+            '║                                                                               ║',
+            '║  👤 PERSONAL BRAND                                                           ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Brand Name: 0xrmd                                                         ║',
+            '║  • Full Name: Rami Mohamed                                                    ║',
+            '║  • Username: @0xrmd (across all platforms)                                   ║',
+            '║  • Domain: 0xrmd.dev (coming soon)                                           ║',
+            '║  • Location: Algeria 🇩🇿                                                     ║',
+            '║  • Timezone: UTC+1 (CET)                                                     ║',
+            '║                                                                               ║',
+            '║  🎯 BRAND PHILOSOPHY                                                         ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Core Mission: "rm -d legacy && mkdir future"                              ║',
+            '║  • Vision: Building the future of technology                                 ║',
+            '║  • Values: Innovation, Efficiency, Sustainability                            ║',
+            '║  • Approach: Problem-solving through code                                    ║',
+            '║                                                                               ║',
+            '║  💡 BRAND IDENTITY                                                           ║',
+            '║  ─────────────────                                                           ║',
+            '║  The "0xrmd" name represents multiple layers:                                ║',
+            '║  • 0x = Hexadecimal prefix (developer mindset)                               ║',
+            '║  • rmd = Rami Mohamed (personal identity)                                     ║',
+            '║  • rm -d = Remove directory command (philosophy)                             ║',
+            '║  • Symbolizes: Removing old limitations, creating new possibilities          ║',
+            '║                                                                               ║',
+            '║  🚀 PROFESSIONAL FOCUS                                                       ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Full-Stack Development                                                     ║',
+            '║  • System Architecture & Design                                              ║',
+            '║  • DevOps & Cloud Technologies                                               ║',
+            '║  • Performance Optimization                                                  ║',
+            '║  • AI/ML Integration                                                         ║',
+            '║  • Cybersecurity Implementation                                              ║',
+            '║                                                                               ║',
+            '║  🎨 BRAND AESTHETICS                                                         ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Color Scheme: #00bf63 (Success Green) + #ff3131 (Alert Red)              ║',
+            '║  • Style: Terminal/Console aesthetic                                         ║',
+            '║  • Theme: Cyberpunk meets minimalism                                         ║',
+            '║  • Typography: Monospace fonts (Courier New, JetBrains Mono)                ║',
+            '║                                                                               ║',
+            '║  📈 CURRENT STATUS                                                           ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Portfolio: 75% Complete                                                   ║',
+            '║  • Active Projects: Multiple in development                                  ║',
+            '║  • Availability: Open to collaborations                                      ║',
+            '║  • Focus: Building extraordinary solutions                                   ║',
+            '║                                                                               ║',
+            '║  🔗 SOCIAL PRESENCE                                                          ║',
+            '║  ─────────────────                                                           ║',
+            '║  • GitHub: github.com/0xrmd (coming soon)                                    ║',
+            '║  • LinkedIn: linkedin.com/in/rami-mohamed-0xrmd (coming soon)                ║',
+            '║  • Twitter: @0xrmd (coming soon)                                             ║',
+            '║  • Email: contact@0xrmd.dev (coming soon)                                    ║',
+            '║                                                                               ║',
+            '║  💼 PROFESSIONAL SERVICES                                                    ║',
+            '║  ─────────────────                                                           ║',
+            '║  • Web Application Development                                               ║',
+            '║  • System Architecture Consulting                                           ║',
+            '║  • Performance Optimization                                                  ║',
+            '║  • DevOps Implementation                                                     ║',
+            '║  • Technical Leadership                                                      ║',
+            '║  • Code Review & Mentoring                                                   ║',
+            '║                                                                               ║',
+            '╚═══════════════════════════════════════════════════════════════════════════════╝',
+            '',
+            '🌟 "Every line of code is a step toward the future we want to build." - 0xrmd',
+            '',
+            'Type "contact" to get in touch or "philosophy" to learn more about my approach!'
+          ];
+        }
+      },
+      whoami: {
+        description: 'Current user info',
+        execute: () => {
+          return [
+            '👤 USER PROFILE',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            '🆔 USERNAME: 0xrmd',
+            '👨‍💻 REAL NAME: Rami Mohamed',
+            '🏷️ DISPLAY NAME: 0xrmd',
+            '📧 EMAIL: contact@0xrmd.dev (coming soon)',
+            '🌐 DOMAIN: 0xrmd.dev (launching soon)',
+            '',
+            '🌍 LOCATION: Algeria 🇩🇿',
+            '⏰ TIMEZONE: UTC+1 (Central European Time)',
+            '🗣️ LANGUAGES: Arabic, French, English',
+            '',
+            '💼 ROLE: Developer & Digital Architect',
+            '🎯 TITLE: Full-Stack Developer',
+            '🚀 STATUS: Building the future',
+            '📈 LEVEL: Senior Developer',
+            '',
+            '🔧 SPECIALTIES:',
+            '• System Architecture',
+            '• Performance Optimization',
+            '• DevOps Implementation',
+            '• Full-Stack Development',
+            '',
+            '🎨 BRAND IDENTITY:',
+            '• Philosophy: rm -d legacy && mkdir future',
+            '• Mission: Transforming complex challenges',
+            '• Vision: Building tomorrow\'s solutions',
+            '',
+            '📊 CURRENT STATUS:',
+            '• Portfolio: 75% Complete',
+            '• Projects: Multiple in development',
+            '• Availability: Open to collaboration',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+          ];
+        }
+      },
+      date: {
+        description: 'Current date and time',
+        execute: () => {
+          return [new Date().toString()];
+        }
+      },
+      philosophy: {
+        description: 'The rm -d philosophy',
+        execute: () => {
+          return [
+            'The rm -d Philosophy:',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            'rm -d legacy  → Remove outdated systems',
+            'mkdir future  → Create innovative solutions',
+            '',
+            'This philosophy drives everything I do:',
+            '• Removing barriers to innovation',
+            '• Deleting inefficient processes',
+            '• Creating space for new ideas',
+            '• Building sustainable tech solutions',
+            '',
+            'It\'s not just about code - it\'s about mindset.',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+          ];
+        }
+      },
+      contact: {
+        description: 'Get in touch',
+        execute: () => {
+          return [
+            '📡 CONTACT INFORMATION',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            '👤 RAMI MOHAMED (@0xrmd)',
+            '📍 Location: Algeria 🇩🇿',
+            '⏰ Timezone: UTC+1 (CET)',
+            '',
+            '📧 EMAIL CONTACTS:',
+            '• General: contact@0xrmd.dev (coming soon)',
+            '• Business: business@0xrmd.dev (coming soon)',
+            '• Collaboration: collab@0xrmd.dev (coming soon)',
+            '• Technical: tech@0xrmd.dev (coming soon)',
+            '',
+            '🌐 SOCIAL MEDIA:',
+            '• GitHub: github.com/0xrmd (coming soon)',
+            '• LinkedIn: linkedin.com/in/rami-mohamed-0xrmd (coming soon)',
+            '• Twitter: @0xrmd (coming soon)',
+            '• Dev.to: dev.to/0xrmd (coming soon)',
+            '',
+            '💼 PROFESSIONAL SERVICES:',
+            '• Web Development Projects',
+            '• System Architecture Consulting',
+            '• DevOps Implementation',
+            '• Performance Optimization',
+            '• Technical Leadership',
+            '• Code Review & Mentoring',
+            '',
+            '🚀 COLLABORATION OPPORTUNITIES:',
+            '• Open Source Projects',
+            '• Startup Partnerships',
+            '• Technical Consulting',
+            '• Speaking Engagements',
+            '• Mentorship Programs',
+            '',
+            '⚡ RESPONSE TIME: 24-48 hours',
+            '🎯 AVAILABILITY: Open to new opportunities',
+            '',
+            '💡 "Let\'s build something extraordinary together!"',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+          ];
+        }
+      },
+      colors: {
+        description: 'Show color scheme',
+        execute: () => {
+          return [
+            'Color Scheme:',
+            '🟢 Primary: #00bf63 (Success Green)',
+            '🔴 Accent:  #ff3131 (Alert Red)',
+            '⚪ Base:    #ffffff (Pure White)',
+            '⚫ Background: #000000 (Deep Black)',
+            '',
+            'This palette represents:',
+            '• Growth and innovation (Green)',
+            '• Urgency and passion (Red)',
+            '• Clarity and simplicity (White)',
+            '• The unknown and potential (Black)'
+          ];
+        }
+      },
+      brand: {
+        description: 'Brand identity & design details',
+        execute: () => {
+          return [
+            '🎨 0xrmd BRAND IDENTITY',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            '📛 BRAND NAME: 0xrmd',
+            '👤 FULL NAME: Rami Mohamed',
+            '🌐 USERNAME: @0xrmd (universal across platforms)',
+            '🔗 DOMAIN: 0xrmd.dev (launching soon)',
+            '',
+            '🎯 BRAND MEANING:',
+            '• 0x = Hexadecimal prefix (developer mindset)',
+            '• rmd = Rami Mohamed (personal identity)',
+            '• rm -d = Remove directory command (philosophy)',
+            '',
+            '🎨 VISUAL IDENTITY:',
+            '• Primary Color: #00bf63 (Success Green)',
+            '• Accent Color: #ff3131 (Alert Red)',
+            '• Typography: Monospace fonts (terminal aesthetic)',
+            '• Style: Cyberpunk minimalism',
+            '• Theme: Matrix-inspired with modern touches',
+            '',
+            '💡 BRAND PILLARS:',
+            '• Innovation: Building tomorrow\'s solutions today',
+            '• Efficiency: Optimizing every line of code',
+            '• Sustainability: Creating lasting digital impact',
+            '• Authenticity: Genuine problem-solving approach',
+            '',
+            '🚀 BRAND PROMISE:',
+            '"Transforming complex challenges into elegant solutions"',
+            '',
+            '📍 LOCATION: Algeria 🇩🇿',
+            '⏰ TIMEZONE: UTC+1 (Central European Time)',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+          ];
+        }
+      },
+      social: {
+        description: 'Social media links',
+        execute: () => {
+          return [
+            '🌐 SOCIAL MEDIA & ONLINE PRESENCE',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+            '',
+            '🔗 COMING SOON:',
+            '• GitHub: github.com/0xrmd',
+            '• LinkedIn: linkedin.com/in/rami-mohamed-0xrmd',
+            '• Twitter: @0xrmd',
+            '• Instagram: @0xrmd',
+            '• Dev.to: dev.to/0xrmd',
+            '• Medium: @0xrmd',
+            '',
+            '📧 CONTACT:',
+            '• Email: contact@0xrmd.dev',
+            '• Business: business@0xrmd.dev',
+            '• Collaboration: collab@0xrmd.dev',
+            '',
+            '🌍 WEBSITE:',
+            '• Portfolio: 0xrmd.dev',
+            '• Blog: blog.0xrmd.dev',
+            '• Projects: projects.0xrmd.dev',
+            '',
+            '💼 PROFESSIONAL:',
+            '• Portfolio: Currently viewing (75% complete)',
+            '• Resume: Available upon request',
+            '• Certifications: In progress',
+            '',
+            '🎯 STATUS: Building digital presence - Links activating soon!',
+            '⚡ MOTTO: "Code first, social second, impact always"',
+            '',
+            '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
+          ];
+        }
+      },
+      clear: {
+        description: 'Clear terminal',
+        execute: () => {
+          terminalOutput.innerHTML = '';
+          return [];
+        }
+      },
+      matrix: {
+        description: 'Toggle matrix effect',
+        execute: () => {
+          const canvas = document.getElementById('matrix');
+          if (canvas.style.display === 'none') {
+            canvas.style.display = 'block';
+            return ['Matrix effect enabled'];
+          } else {
+            canvas.style.display = 'none';
+            return ['Matrix effect disabled'];
+          }
+        }
+      },
+      projects: {
+        description: 'View projects',
+        execute: () => {
+          return [
+            'Projects Module:',
+            '┌─────────────────────────────────────────┐',
+            '│ 🚀 COMING SOON                         │',
+            '│                                         │',
+            '│ • Web Applications                      │',
+            '│ • Open Source Contributions             │',
+            '│ • System Architecture Projects          │',
+            '│ • AI/ML Implementations                 │',
+            '│ • Developer Tools                       │',
+            '│                                         │',
+            '│ Stay tuned for detailed project         │',
+            '│ showcases and live demos!               │',
+            '└─────────────────────────────────────────┘'
+          ];
+        }
+      },
+      skills: {
+        description: 'Technical skills',
+        execute: () => {
+          return [
+            'Technical Skills:',
+            '┌─────────────────────────────────────────┐',
+            '│ ⚡ EXPANDING SOON                       │',
+            '│                                         │',
+            '│ • Full-Stack Development                │',
+            '│ • System Architecture                   │',
+            '│ • DevOps & Cloud Technologies           │',
+            '│ • AI/ML & Data Science                  │',
+            '│ • Cybersecurity                         │',
+            '│ • Performance Optimization              │',
+            '│                                         │',
+            '│ Detailed skill matrix coming soon!      │',
+            '└─────────────────────────────────────────┘'
+          ];
+        }
+      },
+      blog: {
+        description: 'Development blog',
+        execute: () => {
+          return [
+            'Development Blog:',
+            '┌─────────────────────────────────────────┐',
+            '│ 📝 BLOG COMING SOON                     │',
+            '│                                         │',
+            '│ Upcoming topics:                        │',
+            '│ • System Design Patterns                │',
+            '│ • Performance Optimization              │',
+            '│ • AI/ML in Production                   │',
+            '│ • Developer Productivity                │',
+            '│ • Tech Philosophy & Insights            │',
+            '│                                         │',
+            '│ Subscribe for updates!                  │',
+            '└─────────────────────────────────────────┘'
+          ];
+        }
+      },
+      resume: {
+        description: 'Professional resume',
+        execute: () => {
+          return [
+            'Professional Resume:',
+            '┌─────────────────────────────────────────┐',
+            '│ 📄 RESUME COMING SOON                   │',
+            '│                                         │',
+            '│ Will include:                           │',
+            '│ • Professional Experience               │',
+            '│ • Education & Certifications            │',
+            '│ • Technical Skills Matrix               │',
+            '│ • Project Highlights                    │',
+            '│ • Achievements & Awards                 │',
+            '│                                         │',
+            '│ PDF download will be available!         │',
+            '└─────────────────────────────────────────┘'
+          ];
+        }
+      }
+    };
+
+    function addOutputLine(text, className = 'output-line') {
+      const line = document.createElement('div');
+      line.className = className;
+      line.textContent = text;
+      terminalOutput.appendChild(line);
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function executeCommand(cmd) {
+      const trimmedCmd = cmd.trim().toLowerCase();
+
+      if (trimmedCmd === '') return;
+
+      // Add command to history
+      commandHistory.push(cmd);
+      historyIndex = commandHistory.length;
+
+      // Show command input
+      addOutputLine(`0xrmd@terminal:~$ ${cmd}`, 'output-line');
+
+      // Execute command
+      if (commands[trimmedCmd]) {
+        const result = commands[trimmedCmd].execute();
+        result.forEach(line => addOutputLine(line));
+      } else {
+        addOutputLine(`Command not found: ${trimmedCmd}`, 'output-line');
+        addOutputLine('Type "help" for available commands', 'output-line');
+      }
+
+      addOutputLine('', 'output-line'); // Empty line for spacing
+    }
+
+    commandInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const command = commandInput.value;
+        executeCommand(command);
+        commandInput.value = '';
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (historyIndex > 0) {
+          historyIndex--;
+          commandInput.value = commandHistory[historyIndex];
+        }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          commandInput.value = commandHistory[historyIndex];
+        } else {
+          historyIndex = commandHistory.length;
+          commandInput.value = '';
+        }
+      }
+    });
+
+    // Navigation menu click handlers
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const command = item.getAttribute('data-command');
+        if (command && commands[command]) {
+          commandInput.value = command;
+          executeCommand(command);
+          commandInput.value = '';
+        }
+      });
+    });
+
+    // Auto-focus command input
+    commandInput.focus();
+
+    // Focus command input when clicking on terminal
+    terminalOutput.addEventListener('click', () => {
+      commandInput.focus();
+    });
+
+    // Startup animation
+    setTimeout(() => {
+      addOutputLine('', 'output-line');
+      addOutputLine('===================================', 'output-line');
+      addOutputLine('🚀 Welcome to 0xrmd Portfolio Terminal', 'output-line');
+      addOutputLine('===================================', 'output-line');
+      addOutputLine('💡 This is an interactive terminal interface.', 'output-line');
+      addOutputLine('🎯 Try typing "help" to see available commands.', 'output-line');
+      addOutputLine('⚡ Click on navigation items or type commands directly.', 'output-line');
+      addOutputLine('✨ Full portfolio content coming soon!', 'output-line');
+      addOutputLine('', 'output-line');
+    }, 2000);
 
     // Enhanced cursor trail effect with colors
     document.addEventListener('mousemove', (e) => {
