@@ -32,7 +32,7 @@ I'm a self-taught developer passionate about building clean, maintainable system
 ### 📫 Connect With Me
 
 - 🌐 Website: [0xrmd](https://0xrmd.co)
-- 💬 Instagram: [@0xrmd](https://instagram.com/med.rami.dev)
+- 💬 Instagram: [@med.rami.dev](https://instagram.com/med.rami.dev)
 - 📨 Always open to cool side projects, startups, and collaborations.
 
 ---
