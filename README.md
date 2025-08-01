@@ -9,11 +9,11 @@ I'm a self-taught developer passionate about building clean, maintainable system
 ### 🧠 Core Skills
 
 - **Languages:** Dart, TypeScript, JavaScript, PHP, SQL, HTML/CSS
-- **Mobile:** Flutter, Riverpod, Cubit, Bloc, Firebase, Supabase
+- **Mobile:** Flutter, Riverpod, Cubit, Bloc, Firebase, Supabase, AppWrite
 - **Architecture:** MVVM, Clean Architecture, SOLID Principles, Domain-Driven Design
 - **Back-End:** Node.js, Express, REST APIs, Firebase Functions, Supabase Edge Functions
 - **Dev Tools:** Git, Docker, Postman, GitHub Actions, VS Code
-- **Automation & AI:** n8n, LangChain, OpenAI API
+- **Automation & AI:** n8n, OpenAI API
 - **Databases:** Firestore, Supabase (PostgreSQL), SQLite
 - **Testing:** Unit Testing, Integration Testing, TDD
 
@@ -32,7 +32,7 @@ I'm a self-taught developer passionate about building clean, maintainable system
 ### 📫 Connect With Me
 
 - 🌐 Website: [0xrmd](https://0xrmd.co)
-- 💬 Instagram: [@0xrmd](https://instagram.com/0xrmd)
+- 💬 Instagram: [@0xrmd](https://instagram.com/med.rami.dev)
 - 📨 Always open to cool side projects, startups, and collaborations.
 
 ---
